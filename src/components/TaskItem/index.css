@@ -1,0 +1,70 @@
+.label-container {
+  background-color: #e6f6ff;
+  width: 100%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #096f92;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+.row-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkbox-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 400;
+  width: 82%;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+}
+.incompletedCls {
+  color: blueviolet;
+}
+.completedCls {
+  color: green;
+}
+
+.status-delete-container {
+  display: flex;
+  align-items: center;
+}
+.date-span {
+  font-size: 16px;
+  color: brown;
+  padding: 0px;
+  margin-right: 5px;
+  width: 120px;
+  margin-left: 20px;
+  font-weight: 700;
+}
+.delete-icon-container {
+  background: none;
+  border: none;
+  outline: none;
+  text-align: right;
+  width: 20%;
+  cursor: pointer;
+  font-size: 20px;
+}

@@ -1,0 +1,131 @@
+.tasks-page-container {
+  background-color: #b7f7f6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.welcome-back-heading {
+  font-size: 40px;
+  font-family: 'Bree Serif';
+  color: #07403f;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  justify-self: center;
+}
+.logout-btn {
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 14px;
+  color: #ffffff;
+  height: 40px;
+  width: 100px;
+  margin-top: 20px;
+  background-color: #086362;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 50px;
+}
+.create-task-heading {
+  color: #086362;
+  font-size: 30px;
+  font-family: 'Bree Serif';
+  font-weight: 700;
+}
+.task-items-container {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.tasks-items-heading {
+  font-family: 'Bree Serif';
+  font-size: 32px;
+  font-weight: 700;
+  color: #086362;
+}
+
+.todo-item-container {
+  margin-top: 15px;
+}
+
+.todo-user-input {
+  background-color: white;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e4e7eb;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.add-button {
+  color: white;
+  background-color: #096f92;
+  font-family: 'Roboto';
+  font-size: 18px;
+  border-width: 0;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 100px;
+}
+
+.completion-time {
+  margin-top: 30px;
+  color: #4c63b6;
+  font-size: 20px;
+}
+.date-input {
+  background-color: lightgreen;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: #4c63b6;
+  font-weight: bold;
+}
+.delete-icon-container {
+  text-align: right;
+  width: 18%;
+}
+
+.delete-icon {
+  padding: 15px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+.save-button {
+  color: darkblue;
+  background: none;
+  font-family: 'Roboto';
+  font-size: 15px;
+  border: darkblue 2px solid;
+  border-radius: 70px;
+  padding: 10px;
+  font-weight: bold;
+  margin-left: 100px;
+  cursor: pointer;
+}
+.mytasks-save-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.get-statistics {
+  color: brown;
+  background-color: lightblue;
+  font-family: 'Roboto';
+  font-size: 15px;
+  border: none;
+  border-radius: 70px;
+  padding: 14px;
+  font-weight: bold;
+  margin-left: 100px;
+  cursor: pointer;
+}
