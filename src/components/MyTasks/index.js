@@ -172,16 +172,22 @@ class MyTasks extends Component {
 
     return (
       <div className="tasks-progress-container">
-        <h1 className="task-progress-heading">
-          Week Wise Tasks Completion Progress
-        </h1>
-        {weekCompletionPercentages.map(eachPer => (
-          <TasksReport
-            progress={eachPer.per}
-            height={30}
-            weekNum={eachPer.weekNum}
-          />
-        ))}
+        {tasks.length === 0 ? (
+          <h1>NOTHING TO SHOW!!</h1>
+        ) : (
+          <>
+            <h1 className="task-progress-heading">
+              Week Wise Tasks Completion Progress
+            </h1>
+            {weekCompletionPercentages.map(eachPer => (
+              <TasksReport
+                progress={eachPer.per}
+                height={30}
+                weekNum={eachPer.weekNum}
+              />
+            ))}
+          </>
+        )}
       </div>
     )
   }
@@ -239,14 +245,21 @@ class MyTasks extends Component {
             </button>
           </div>
           <ul className="task-items-container" id="todoItemsContainer">
-            {tasks.map(eachTask => (
-              <TaskItem
-                key={eachTask.id}
-                taskDetails={eachTask}
-                deleteTask={this.deleteTask}
-                toggleCheckBox={this.toggleCheckBox}
-              />
-            ))}
+            {tasks.length === 0 ? (
+              <p className="no-tasks-msg">No tasks, keep adding new tasks!!</p>
+            ) : (
+              <>
+                {' '}
+                {tasks.map(eachTask => (
+                  <TaskItem
+                    key={eachTask.id}
+                    taskDetails={eachTask}
+                    deleteTask={this.deleteTask}
+                    toggleCheckBox={this.toggleCheckBox}
+                  />
+                ))}{' '}
+              </>
+            )}
           </ul>
         </div>
         <button
