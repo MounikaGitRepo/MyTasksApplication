@@ -41,9 +41,13 @@
 }
 .incompletedCls {
   color: blueviolet;
+  font-size: 18px;
+  font-weight: 500;
 }
 .completedCls {
   color: green;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .status-delete-container {

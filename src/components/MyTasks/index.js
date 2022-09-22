@@ -2,6 +2,7 @@ import {v4 as uuidv4} from 'uuid'
 
 import {Component} from 'react'
 import TaskItem from '../TaskItem'
+import TasksReport from '../TasksReport'
 import './index.css'
 
 const getTasksListFromLocalStorage = () => {
@@ -14,11 +15,18 @@ const getTasksListFromLocalStorage = () => {
 }
 const tasksList = getTasksListFromLocalStorage()
 
+const getWeekCompletionPer = week => {
+  const {total, completed, weekNum} = week
+
+  return {weekNum, per: Math.floor((completed / total) * 100)}
+}
+
 class MyTasks extends Component {
   state = {
     taskUserInput: '',
     tasks: [],
     completionDate: '',
+    showStats: false,
   }
 
   componentDidMount() {
@@ -80,8 +88,102 @@ class MyTasks extends Component {
     }))
   }
 
-  getStatistics = () => {
+  statisticsClicked = () => {
     console.log('statistics clicked')
+    this.setState(prev => ({showStats: !prev.showStats}))
+  }
+
+  getWeekProgress = () => {
+    const {tasks} = this.state
+    const arr = [
+      [1, 2, 3, 4, 5, 6, 7],
+      [8, 9, 10, 11, 12, 13, 14],
+      [15, 16, 17, 18, 19, 20, 21],
+      [22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+    ]
+
+    let date
+
+    let week1Count = 0
+    let week2Count = 0
+    let week3Count = 0
+    let week4Count = 0
+
+    let week1Compl = 0
+    let week2Compl = 0
+    let week3Compl = 0
+    let week4Compl = 0
+
+    tasks.map(each => {
+      date = new Date(each.completionDate)
+
+      const num = date.getDate()
+      if (arr[0].includes(num)) {
+        week1Count += 1
+        if (each.isChecked) {
+          week1Compl += 1
+        }
+      } else if (arr[1].includes(num)) {
+        week2Count += 1
+        if (each.isChecked) {
+          week2Compl += 1
+        }
+      } else if (arr[2].includes(num)) {
+        week3Count += 1
+        if (each.isChecked) {
+          week3Compl += 1
+        }
+      } else if (arr[3].includes(num)) {
+        week4Count += 1
+        if (each.isChecked) {
+          week4Compl += 1
+        }
+      }
+      return {week1Count, week2Count, week3Count, week4Count}
+    })
+
+    const weekDetails = [
+      {
+        weekNum: 1,
+        total: week1Count,
+        completed: week1Compl,
+      },
+      {
+        weekNum: 2,
+        total: week2Count,
+        completed: week2Compl,
+      },
+      {
+        weekNum: 3,
+        total: week3Count,
+        completed: week3Compl,
+      },
+      {
+        weekNum: 4,
+        total: week4Count,
+        completed: week4Compl,
+      },
+    ]
+
+    // console.log(weekDetails)
+    const weekCompletionPercentages = weekDetails.map(eachWeek =>
+      getWeekCompletionPer(eachWeek),
+    )
+
+    return (
+      <div className="tasks-progress-container">
+        <h1 className="task-progress-heading">
+          Week Wise Tasks Completion Progress
+        </h1>
+        {weekCompletionPercentages.map(eachPer => (
+          <TasksReport
+            progress={eachPer.per}
+            height={30}
+            weekNum={eachPer.weekNum}
+          />
+        ))}
+      </div>
+    )
   }
 
   onLogout = () => {
@@ -90,7 +192,10 @@ class MyTasks extends Component {
   }
 
   render() {
-    const {taskUserInput, tasks, completionDate} = this.state
+    const {taskUserInput, tasks, completionDate, showStats} = this.state
+    const progressBtnText = showStats
+      ? 'Hide Progress'
+      : 'Show Week Wise Progress'
 
     return (
       <div className="tasks-page-container">
@@ -147,10 +252,12 @@ class MyTasks extends Component {
         <button
           type="button"
           className="get-statistics"
-          onClick={this.getStatistics}
+          onClick={this.statisticsClicked}
         >
-          Show Week Wise Report
+          {progressBtnText}
         </button>
+
+        {showStats && this.getWeekProgress()}
       </div>
     )
   }

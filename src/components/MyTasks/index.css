@@ -77,6 +77,7 @@
   margin-top: 30px;
   color: #4c63b6;
   font-size: 20px;
+  font-weight: 700;
 }
 .date-input {
   background-color: lightgreen;
@@ -87,18 +88,7 @@
   color: #4c63b6;
   font-weight: bold;
 }
-.delete-icon-container {
-  text-align: right;
-  width: 18%;
-}
 
-.delete-icon {
-  padding: 15px;
-}
-
-.checked {
-  text-decoration: line-through;
-}
 .save-button {
   color: darkblue;
   background: none;
@@ -124,8 +114,23 @@
   font-size: 15px;
   border: none;
   border-radius: 70px;
-  padding: 14px;
+  padding: 16px;
   font-weight: bold;
-  margin-left: 100px;
+  margin-top: 100px;
+  margin-bottom: 30px;
   cursor: pointer;
+  align-self: center;
+}
+.tasks-progress-container {
+  width: 70vw;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.task-progress-heading {
+  color: #086362;
+  font-size: 26px;
+  font-family: 'Bree Serif';
+  font-weight: 700;
+  text-decoration: underline;
 }

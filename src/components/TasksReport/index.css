@@ -1,0 +1,9 @@
+.row-container {
+  display: flex;
+  align-items: center;
+}
+.week-heading {
+  font-size: 20px;
+  font-weight: 800;
+  color: darkmagenta;
+}
